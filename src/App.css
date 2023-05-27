@@ -1,0 +1,18 @@
+*{
+  margin: 0;
+  transition: all 0.15s;
+}
+.group:hover .child{
+  color: rgb(42, 87, 235);
+}
+.postOption{
+  padding: 0.5rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  border-radius: 0.3rem;
+  align-items: center;
+}
