@@ -8,21 +8,24 @@ import ArticleIcon from '@mui/icons-material/Article';
 import { db } from '../../firebase';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { doc, addDoc, Timestamp } from "firebase/firestore"; 
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../app/userSlice';
 
 
 
 const StartPost = () => {
   const [message, setMessage] = useState('')
+  const user = useSelector(selectUser)
 
   const handlePost = async(e)=>{
     e.preventDefault()
 
    try {
     const newUserDocRef = await addDoc(collection(db, 'posts'), {
-      name: 'Tito Onwudinjo',
+      name: user.name,
       description: 'Future robotics engineer',
       message: message,
-      avatar: '',
+      avatar: user.avatar || '',
       timestamp: Timestamp.now()
     });
     setMessage('')
@@ -37,7 +40,7 @@ const StartPost = () => {
   return (
     <div className='flex flex-col w-[100%] text-[0.9rem] font-semibold p-4 pt-3 pb-2 border-[0.1rem] gap-2 rounded-[0.7rem] bg-white '>
         <div className='flex flex-row items-center gap-3'>
-            <Avatar src='/assets/titoImg.png' />
+            <Avatar className='font-normal' src={user.avatar}>{user.name[0].toUpperCase()}</Avatar>
             <form className='border-[0.09rem] w-full justify-between h-[3rem] rounded-[1.5rem]  pl-4 pr-4 border-gray-400 flex flex-row items-center'>
                 <input className='outline-none h-full w-full bg-transparent' type="text" placeholder='Start your post here' value={message}
                       onChange={(e)=> setMessage(e.target.value)} />

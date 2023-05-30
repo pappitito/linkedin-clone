@@ -4,7 +4,7 @@ import EastIcon from '@mui/icons-material/East';
 
 const AddFeed = () => {
   return (
-    <div className='flex flex-col  min-w-[17.5rem] gap-3'>
+    <div className='flex flex-col sticky top-0 min-w-[17.5rem] gap-3'>
         <div className='flex flex-col gap-3 w-[100%] p-3  items-start bg-white rounded-[0.7rem]' id='top'>
             <div className='font-semibold '>Add to your feed</div>
             <AccountFollow avatar={'/assets/unnamed.jpg'} name={'James Milner'} bio={'Forex Trader | Software Engineer'} />

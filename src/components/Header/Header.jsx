@@ -7,8 +7,21 @@ import SmsIcon from '@mui/icons-material/Sms';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import HeaderOption from './HeaderOption';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { useDispatch } from 'react-redux';
+import { logout, selectUser } from '../../app/userSlice';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+
+  const user = useSelector(selectUser)
+  const dispatch = useDispatch()
+const logUserOut = ()=>{
+  dispatch(logout())
+  signOut(auth)
+}
+
   return (
     <div className='pt-2 items-center sticky top-0 w-full z-[999] justify-evenly flex flex-row bg-white'>
       <div className='flex flex-row items-center gap-4' id='left-side'>
@@ -25,7 +38,7 @@ const Header = () => {
         <HeaderOption Icon={WorkIcon} name='Jobs' />
         <HeaderOption Icon={SmsIcon} name='Messaging' />
         <HeaderOption Icon={NotificationsIcon} name='Notifications' />
-        <HeaderOption avatar={'/assets/titoImg.png'} name='Me' isDropDown />
+        <HeaderOption avatar={user?.avatar} isAvatar name='Me' isDropDown onClick={logUserOut} />
 
       </div>
     </div>
