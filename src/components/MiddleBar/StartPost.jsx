@@ -44,7 +44,7 @@ const StartPost = () => {
             <form className='border-[0.09rem] w-full justify-between h-[3rem] rounded-[1.5rem]  pl-4 pr-4 border-gray-400 flex flex-row items-center'>
                 <input className='outline-none  focus:outline-none h-full w-full bg-transparent' type="text" placeholder='Start a post' value={message}
                       onChange={(e)=> setMessage(e.target.value)} />
-                <button onClick={handlePost} type='submit'><SendIcon/></button>
+                <button onClick={handlePost} type='submit'><SendIcon className=' text-gray-500 cursor-pointer hover:text-black mt-[-0.3rem] -rotate-45' /></button>
             </form>
         </div>
 
