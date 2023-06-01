@@ -6,7 +6,7 @@ import Sidebar from './components/LeftSide/Sidebar';
 import MiddleBar from './components/MiddleBar/MiddleBar';
 import AddFeed from './components/RightSide/AddFeed';
 import { useSelector } from 'react-redux';
-import { accountAvailable, logout, login, selectUser, isSearchActive, toggleSearchActive, toggleMobileActive, toggleMobileInactive } from './app/userSlice';
+import { accountAvailable, logout, login, selectUser, isSearchActive, toggleSearchActive,  toggleMobileInactive } from './app/userSlice';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -28,7 +28,7 @@ function App() {
           email: userCredentials.email,
           uid: userCredentials.uid,
           name: userCredentials.displayName,
-          avatar: userCredentials.photoURL
+          avatar: userCredentials.photoURL? userCredentials.photoURL : ''
         }))
         
       }

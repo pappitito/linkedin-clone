@@ -23,7 +23,7 @@ const Login = () => {
         email: userCredentials.user.email,
         uid: userCredentials.user.uid,
         name: userCredentials.user.displayName,
-        avatar: userCredentials.user.photoURL
+        avatar: userCredentials.user.photoURL? userCredentials.user.photoURL : ''
       }))
       console.log('done');
     })
