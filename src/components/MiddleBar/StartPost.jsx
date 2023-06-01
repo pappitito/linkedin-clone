@@ -42,9 +42,9 @@ const StartPost = () => {
         <div className='flex flex-row items-center gap-3'>
             <Avatar className='font-normal' src={user.avatar}>{user.name? user.name[0].toUpperCase() : ''}</Avatar>
             <form className='border-[0.09rem] w-full justify-between h-[3rem] rounded-[1.5rem]  pl-4 pr-4 border-gray-400 flex flex-row items-center'>
-                <input className='outline-none h-full w-full bg-transparent' type="text" placeholder='Start a post' value={message}
+                <input className='outline-none  focus:outline-none h-full w-full bg-transparent' type="text" placeholder='Start a post' value={message}
                       onChange={(e)=> setMessage(e.target.value)} />
-                <button onClick={handlePost} type='submit'></button>
+                <button onClick={handlePost} type='submit'><SendIcon/></button>
             </form>
         </div>
 
