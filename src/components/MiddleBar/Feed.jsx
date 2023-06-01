@@ -29,9 +29,9 @@ const Feed = () => {
  },[])
 
   return (
-    <div className='flex w-[100%] gap-3 flex-col'>
-        <FlipMove  duration={800}>
-            {posts && posts.map(({id, data: {name, description, avatar, message}})=> <Post key={id} id={id} avatar={avatar} name={name}  description={description}  message={message} />)}
+    <div className='flex  w-[100%] gap-3 flex-col'>
+        <FlipMove className='flex  w-[100%] gap-3 flex-col'  duration={800}>
+            {posts && posts.map(({id, data: {name, description, avatar, message}})=> <Post key={id} id={id} avatar={avatar} name={name? name: ''}  description={description}  message={message} />)}
              
         </FlipMove>
          

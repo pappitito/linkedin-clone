@@ -45,7 +45,7 @@ const Login = () => {
             <form className='flex flex-col mt-[1.5rem] gap-6 w-[100%] max-w-[26rem]'>
             
             <div>
-                  <label className='text-[0.9rem] font-bold text-gray-500' htmlFor="email">Email or Phone</label>
+                  <label className='text-[0.9rem] font-bold text-gray-500' htmlFor="email">Email</label>
                   <div className='w-full p-[0.8rem] mt-[0.5rem] border-[0.1rem] border-gray-400 rounded-[0.2rem]'><input value={email} onChange={(e)=>setEmail(e.target.value)} className='outline-none w-full bg-transparent' type="text" id='email' /></div>
               </div>
               <div>

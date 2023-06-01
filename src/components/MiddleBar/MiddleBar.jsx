@@ -5,7 +5,7 @@ import Feed from './Feed'
 
 const MiddleBar = () => {
   return (
-    <div className='flex w-[100%] max-w-[38rem] gap-4 flex-col'>
+    <div className='flex w-[100&] md:w-[60vw] lg:w-[37vw] md:max-w-[38rem] gap-4 flex-col'>
         <StartPost />
         <Feed />
        

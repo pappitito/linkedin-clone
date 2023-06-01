@@ -24,17 +24,40 @@ const SignUp = () => {
       dispatch(toggleNoAccount())
   }
 
-  function handleSignUp(e){
-    e.preventDefault()
+  async function handleSignUp(e){
+    try {
+      e.preventDefault()
     if(!name || !email || !password ){
       setErrorMsg('complete required fields')
     }
     else{
-      createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredentials)=>{
+     try {
+      const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+     try {
+     const updated = await updateProfile(userCredentials.user,{
+        displayName: name,
+        photoURL: avatar 
+    })
+    
+      dispatch(login({
+        email: userCredentials.email,
+        uid: userCredentials.uid,
+        name: name,
+        avatar: avatar? avatar : ''
+      }))
+    
+
+     } catch (error) {
+      alert(error.message)
+     }
+     } catch (error) {
+      alert(error.message)
+      
+     }
+      /* .then((userCredentials)=>{
         updateProfile(userCredentials.user, {
           displayName: name,
-          photoUrl: avatar
+          photoURL: avatar
         })
         .then(()=>{
           dispatch(login({
@@ -44,9 +67,13 @@ const SignUp = () => {
             avatar: avatar? avatar : ''
           }))
 
-        })
+        }).catch((error)=>alert(error.message))
       })
       .catch((error)=>alert(error.message))
+       */
+    }
+    } catch (error) {
+      alert(error)
       
     }
     
@@ -66,12 +93,9 @@ const SignUp = () => {
                   <label className='text-[0.9rem] font-bold text-gray-500' htmlFor="email">Full name</label>
                   <div className='w-full p-[0.8rem] mt-[0.5rem] border-[0.1rem] border-gray-400 rounded-[0.2rem]'><input value={name} onChange={(e)=>setName(e.target.value)} className='outline-none w-full bg-transparent' type="text" id='email' /></div>
               </div>
+             
               <div>
-                  <label className='text-[0.9rem] font-bold text-gray-500' htmlFor="email">Profile picture</label>
-                  <div className='w-full p-[0.8rem] mt-[0.5rem] border-[0.1rem] border-gray-400 rounded-[0.2rem]'><input value={avatar} onChange={(e)=>setAvatar(e.target.value)} className='outline-none w-full bg-transparent' type="text" id='email' /></div>
-              </div>
-              <div>
-                  <label className='text-[0.9rem] font-bold text-gray-500' htmlFor="email">Email or Phone</label>
+                  <label className='text-[0.9rem] font-bold text-gray-500' htmlFor="email">Email</label>
                   <div className='w-full p-[0.8rem] mt-[0.5rem] border-[0.1rem] border-gray-400 rounded-[0.2rem]'><input value={email} onChange={(e)=>setEmail(e.target.value)} className='outline-none w-full bg-transparent' type="text" id='email' /></div>
               </div>
               <div>
