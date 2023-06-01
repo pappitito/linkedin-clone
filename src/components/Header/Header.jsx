@@ -6,7 +6,6 @@ import WorkIcon from '@mui/icons-material/Work';
 import SmsIcon from '@mui/icons-material/Sms';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import HeaderOption from './HeaderOption';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useDispatch } from 'react-redux';
 import { isMobileActive, isSearchActive, logout, selectUser, toggleMobileActive, toggleSearchActive } from '../../app/userSlice';
 import { signOut } from 'firebase/auth';

@@ -4,6 +4,8 @@ import { login, selectUser, toggleNoAccount } from '../../app/userSlice'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../../firebase';
 import { useSelector } from 'react-redux';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 
@@ -15,6 +17,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('')
   const [avatar, setAvatar] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const dispatch = useDispatch()  
 
@@ -27,6 +30,7 @@ const SignUp = () => {
   async function handleSignUp(e){
     try {
       e.preventDefault()
+      setLoading(true)
     if(!name || !email || !password ){
       setErrorMsg('complete required fields')
     }
@@ -45,12 +49,16 @@ const SignUp = () => {
         name: name,
         avatar: avatar? avatar : ''
       }))
+      setLoading(false);
     
 
      } catch (error) {
+      setLoading(false);
       alert(error.message)
+
      }
      } catch (error) {
+      setLoading(false);
       alert(error.message)
       
      }
@@ -80,13 +88,13 @@ const SignUp = () => {
   }
 
   return (
-    <div className='bg-white flex flex-col gap-5 w-[100vw] h-[100vh]'>
-      <div className='flex flex-row p-3 pl-[15vw] pr-[15vw] items-center justify-between'>
+    <div className='bg-white flex flex-col gap-5 w-[100vw] '>
+      <div className='flex flex-row p-3 pl-[15vw] pr-[15vw] items-center justify-center lg:justify-between'>
         <img className='w-[9.9rem]' src="/assets/logo.png" alt="logo" />
       </div>
-      <section className='flex flex-row items-center pl-[15vw] pr-[2rem] justify-between'>
-          <div className='flex flex-col max-w-[35rem] gap-3'>
-            <h1 className='text-[3.5rem] font-extralight leading-[4rem]  text-[#8F5849]'>Welcome to your proffesional community</h1>
+      <section className='flex flex-col p-4 lg:flex-row gap-7 md:gap-0 justify-center items-center lg:pl-[15vw] lg:pr-[2rem] lg:justify-between'>
+          <div className='flex flex-col items-center lg:items-start max-w-[35rem] gap-3'>
+            <h1 className='md:text-[3.5rem] text-[2.4rem] font-extralight md:leading-[4rem] leading-[2.8rem] text-center lg:text-left  text-[#8F5849]'>Welcome to your proffesional community</h1>
             <form className='flex flex-col mt-[1.5rem] gap-6 w-[100%] max-w-[26rem]'>
               {errorMsg && <div className='text-red-500 mt-[-0.7rem] mb-[-0.6rem] font-semibold italic text-[0.85rem]'>{errorMsg}</div>}
             <div>
@@ -106,7 +114,7 @@ const SignUp = () => {
                     </div>
               </div>
               <div className='text-gray-500 font-medium '>Already have an account?<span onClick={handleAccountAvail} className='font-bold text-[1rem] text-[#0966C2] ml-[0.6rem] hover:underline cursor-pointer'>Log in</span></div>
-              <button onClick={handleSignUp} type='submit' className='w-full flex flex-row justify-center text-white font-bold cursor-pointer bg-[#0966c2] hover:bg-[#06498d] p-[0.8rem] rounded-[2rem]'>Sign up</button>
+              <button onClick={handleSignUp} type='submit' className='w-full flex flex-row justify-center text-white font-bold cursor-pointer bg-[#0966c2] hover:bg-[#06498d] p-[0.8rem] rounded-[2rem]'>{loading? <CircularProgress className='!text-white !h-[2rem]  !w-[2rem]'/> : 'Sign up'}</button>
 
             </form>
 

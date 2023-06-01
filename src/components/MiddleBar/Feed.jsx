@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Post from './Post'
 import { db } from '../../firebase'
-import {  collection, query, orderBy, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
+import {  collection, query, orderBy,  onSnapshot } from 'firebase/firestore';
 import FlipMove from 'react-flip-move'
 
 const Feed = () => {

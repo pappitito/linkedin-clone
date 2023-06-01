@@ -36,11 +36,11 @@ function App() {
         dispatch(logout())
       }
     })
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="App relative">
-      {!user? accountAvail? <Login/> : <SignUp /> : <div>
+      {!user? accountAvail? <div className='h-[100vh] bg-white'><Login/></div> : <div className='h-[100vh] bg-white'><SignUp /></div> : <div>
         <Header />
         {searchActive && <div onClick={()=>{
           dispatch(toggleMobileInactive())
