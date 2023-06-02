@@ -49,10 +49,10 @@ const StartPost = () => {
         </div>
 
         <div className='flex flex-row flex-wrap place-items-center justify-around text-gray-500'>
-            <div className='postOption hover:bg-gray-200'><CropOriginalIcon className='text-[#378FE9] !w-[1.9rem]'/><span className='hidden sm:flex'>Photo</span> </div>
-            <div className='postOption hover:bg-gray-200'><SmartDisplayIcon className='text-[#609B41] !w-[1.9rem]'/><span className='hidden sm:flex'>Video</span> </div>
-            <div className='postOption hover:bg-gray-200'><EventAvailableIcon className='text-[#C37D16] !w-[1.9rem]'/> <span className='hidden sm:flex'>event</span> </div>
-            <div className='postOption hover:bg-gray-200'><ArticleIcon className='text-[#E16745] !w-[1.9rem]'/><span className='hidden sm:flex'>Write article</span></div>
+            <div className='postOption sm:p-[0.6rem] hover:bg-gray-200'><CropOriginalIcon className='text-[#378FE9] !w-[1.9rem]'/><span className='hidden sm:flex'>Photo</span> </div>
+            <div className='postOption sm:p-[0.6rem] hover:bg-gray-200'><SmartDisplayIcon className='text-[#609B41] !w-[1.9rem]'/><span className='hidden sm:flex'>Video</span> </div>
+            <div className='postOption sm:p-[0.6rem] hover:bg-gray-200'><EventAvailableIcon className='text-[#C37D16] !w-[1.9rem]'/> <span className='hidden sm:flex'>event</span> </div>
+            <div className='postOption sm:p-[0.6rem] hover:bg-gray-200'><ArticleIcon className='text-[#E16745] !w-[1.9rem]'/><span className='hidden sm:flex'>Write article</span></div>
 
         </div>
 

@@ -15,7 +15,7 @@ const Sidebar = () => {
         <div className='flex text-[0.75rem] text-gray-500 border-[0.1rem] flex-col  items-center w-full md:w-[14.5rem]  bg-white rounded-[0.7rem]'  id='sidebar top'>
             <img className='h-[4rem] w-[100%] object-cover mb-[-2rem] rounded-t-[0.6rem] ' src="/assets/unnamed.jpg" alt="" />
             <Avatar className='border-white border-[0.2rem]  !w-[4rem] !h-[4rem]' src={user.avatar}>{user.name? user.name[0].toUpperCase() : ''}</Avatar>
-            <h2 className='text-[1.05rem] text-black pl-2 pr-2 mt-[1.2rem] font-semibold'>{user.name}</h2>
+            <h2 className='text-[1.05rem] text-black pl-2 pr-2 mt-[0.6rem] sm:mt-[1.2rem] font-semibold'>{user.name}</h2>
             <h4 className='text-[0.75rem] mt-1 pl-3 pr-3 mb-[1rem] text-center'>Electrical and Electronics graduate from covenant university</h4>
 
             <div className={` flex ${showMore? 'flex' : 'hidden'} md:flex font-semibold text-[0.75rem] leading-6 border-t-[0.07rem] border-b-[0.07rem] pt-3 pb-3  gap-0 w-full flex-col `} id='stats'>

@@ -7,9 +7,7 @@
   color: rgb(42, 87, 235);
 }
 .postOption{
-  padding: 0.5rem;
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
+  padding: 0.2rem;
   cursor: pointer;
   display: flex;
   flex-direction: row;

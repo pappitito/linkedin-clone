@@ -38,11 +38,11 @@ const Post = forwardRef(({name, id, description, avatar, onClick, message, delet
             </div>
         </div>
         <div className='text-[0.9rem]'>{message? message : 'This is a test message for the posts'}</div>
-        <div className='flex flex-row flex-wrap border-t-[1px] pt-1 font-semibold text-[0.9rem] place-items-center justify-around text-gray-500'>
-        <div className='postOption hover:bg-gray-200'><ThumbUpOutlinedIcon className='!w-[1.9rem]'/> <span className='hidden sm:flex'>Like</span></div>
-            <div className='postOption hover:bg-gray-200'><SmsOutlinedIcon className=' !w-[1.9rem]'/> <span className='hidden sm:flex'>Comment</span></div>
-            <div className='postOption hover:bg-gray-200'><RecyclingIcon className=' !w-[1.9rem]'/><span className='hidden sm:flex'>Repost</span> </div>
-            <div className='postOption hover:bg-gray-200'><SendIcon className=' !w-[1.9rem]'/> <span className='hidden sm:flex'>Send</span></div>
+        <div className='flex flex-row flex-wrap border-t-[1px] pt-2 sm:pt-1 font-semibold text-[0.9rem] place-items-center justify-around text-gray-500'>
+        <div className='postOption sm:p-[0.6rem] hover:bg-gray-200'><ThumbUpOutlinedIcon className='!w-[1.9rem]'/> <span className='hidden sm:flex'>Like</span></div>
+            <div className='postOption sm:p-[0.6rem] hover:bg-gray-200'><SmsOutlinedIcon className=' !w-[1.9rem]'/> <span className='hidden sm:flex'>Comment</span></div>
+            <div className='postOption sm:p-[0.6rem] hover:bg-gray-200'><RecyclingIcon className=' !w-[1.9rem]'/><span className='hidden sm:flex'>Repost</span> </div>
+            <div className='postOption sm:p-[0.6rem] hover:bg-gray-200'><SendIcon className=' !w-[1.9rem]'/> <span className='hidden sm:flex'>Send</span></div>
             
         </div>
     </div>
