@@ -38,7 +38,7 @@ const StartPost = () => {
   
   }
   return (
-    <div className='flex flex-col w-[100%] text-[0.9rem] font-semibold p-4 pt-3 pb-2 border-[0.1rem] gap-2 rounded-[0.7rem] bg-white '>
+    <div className='flex flex-col w-[100%] text-[0.9rem] font-semibold p-4 pt-4 pb-2 border-[0.1rem] gap-2 rounded-[0.7rem] bg-white '>
         <div className='flex flex-row items-center gap-3'>
             <Avatar className='font-normal' src={user.avatar}>{user.name? user.name[0].toUpperCase() : ''}</Avatar>
             <form className='border-[0.09rem] w-full justify-between h-[3rem] rounded-[1.5rem]  pl-4 pr-4 border-gray-400 flex flex-row items-center'>
@@ -49,10 +49,10 @@ const StartPost = () => {
         </div>
 
         <div className='flex flex-row flex-wrap place-items-center justify-around text-gray-500'>
-            <div className='postOption hover:bg-gray-200'><CropOriginalIcon className='text-[#378FE9] !w-[1.9rem]'/> Photo </div>
-            <div className='postOption hover:bg-gray-200'><SmartDisplayIcon className='text-[#609B41] !w-[1.9rem]'/> Video </div>
-            <div className='postOption hover:bg-gray-200'><EventAvailableIcon className='text-[#C37D16] !w-[1.9rem]'/> event </div>
-            <div className='postOption hover:bg-gray-200'><ArticleIcon className='text-[#E16745] !w-[1.9rem]'/> Write article </div>
+            <div className='postOption hover:bg-gray-200'><CropOriginalIcon className='text-[#378FE9] !w-[1.9rem]'/><span className='hidden sm:flex'>Photo</span> </div>
+            <div className='postOption hover:bg-gray-200'><SmartDisplayIcon className='text-[#609B41] !w-[1.9rem]'/><span className='hidden sm:flex'>Video</span> </div>
+            <div className='postOption hover:bg-gray-200'><EventAvailableIcon className='text-[#C37D16] !w-[1.9rem]'/> <span className='hidden sm:flex'>event</span> </div>
+            <div className='postOption hover:bg-gray-200'><ArticleIcon className='text-[#E16745] !w-[1.9rem]'/><span className='hidden sm:flex'>Write article</span></div>
 
         </div>
 
