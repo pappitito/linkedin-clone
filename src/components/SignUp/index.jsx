@@ -33,6 +33,11 @@ const SignUp = () => {
       setLoading(true)
     if(!name || !email || !password ){
       setErrorMsg('complete required fields')
+      setLoading(false)
+    }
+    else if(password.length < 6){
+      setErrorMsg('password must be up to 6 characters')
+      setLoading(false)
     }
     else{
      try {
@@ -54,12 +59,12 @@ const SignUp = () => {
 
      } catch (error) {
       setLoading(false);
-      alert(error.message)
+      setErrorMsg(error.code)
 
      }
      } catch (error) {
       setLoading(false);
-      alert(error.message)
+      setErrorMsg(error.code)
       
      }
       /* .then((userCredentials)=>{
@@ -119,7 +124,7 @@ const SignUp = () => {
             </form>
 
           </div>
-          <img className='w-[100%] max-w-[45rem]' src="/assets/illust-linkedin.png" alt="illustration" />
+          <img className='w-[100%] hidden lg:flex max-w-[45rem]' src="/assets/illust-linkedin.png" alt="illustration" />
 
         </section>
     </div>

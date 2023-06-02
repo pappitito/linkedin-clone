@@ -17,15 +17,16 @@ const Feed = () => {
         id: doc.id,
         data: doc.data()
   }))) )
-    console.log(posts);
+    
     } catch (error) {
-      console.log(error);
+      
     }
   }
 
     
  useEffect(()=>{
       getPosts2()
+      console.log('use effect in feed');
  },[])
 
   return (

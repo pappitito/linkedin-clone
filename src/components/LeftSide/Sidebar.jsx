@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [showMore, setShowMore] = useState(false)
 
   return (
-    <div className='flex flex-col sticky top-[4.6rem] z-[100] gap-2'>
+    <div className='flex flex-col sticky top-[4.6rem]  z-[100] gap-2'>
         <div className='flex text-[0.75rem] text-gray-500 border-[0.1rem] flex-col  items-center w-full md:w-[14.5rem]  bg-white rounded-[0.7rem]'  id='sidebar top'>
             <img className='h-[4rem] w-[100%] object-cover mb-[-2rem] rounded-t-[0.6rem] ' src="/assets/unnamed.jpg" alt="" />
             <Avatar className='border-white border-[0.2rem]  !w-[4rem] !h-[4rem]' src={user.avatar}>{user.name? user.name[0].toUpperCase() : ''}</Avatar>

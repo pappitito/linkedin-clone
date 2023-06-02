@@ -12,15 +12,23 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
 
   function handleJoin() {
       dispatch(toggleNoAccount())
      
   }
   function logUserIn(e){
+   try {
     e.preventDefault()
     setLoading(true)
-    signInWithEmailAndPassword(auth, email, password)
+    if( !email || !password ){
+      setErrorMsg('complete required fields')
+      setLoading(false)
+    }
+   
+    else{
+      signInWithEmailAndPassword(auth, email, password)
     .then((userCredentials)=>{
       dispatch(login({
         email: userCredentials.user.email,
@@ -33,9 +41,17 @@ const Login = () => {
     })
     .catch((error)=>{
       setLoading(false);
-      alert(error)
+      var errorMsg = error.code
+     
+      setErrorMsg(errorMsg)
       
     })
+
+    }
+    
+   } catch (error) {
+    setLoading(false);
+   }
   }
 
   return (
@@ -51,7 +67,7 @@ const Login = () => {
           <div className='flex flex-col items-center lg:items-start max-w-[35rem] gap-3'>
             <h1 className='md:text-[3.5rem] text-[2.4rem] font-extralight md:leading-[4rem] leading-[2.8rem]  text-center lg:text-left  text-[#8F5849]'>Welcome to your proffesional community</h1>
             <form className='flex flex-col mt-[1.5rem] gap-6 w-[100%] max-w-[26rem]'>
-            
+            {errorMsg && <div className='text-red-500 mt-[-0.7rem] mb-[-0.6rem] font-semibold italic text-[0.85rem]'>{errorMsg}</div>}
             <div>
                   <label className='text-[0.9rem] font-bold text-gray-500' htmlFor="email">Email</label>
                   <div className='w-full p-[0.8rem] mt-[0.5rem] border-[0.1rem] border-gray-400 rounded-[0.2rem]'><input value={email} onChange={(e)=>setEmail(e.target.value)} className='outline-none w-full bg-transparent' type="text" id='email' /></div>
@@ -69,7 +85,7 @@ const Login = () => {
             </form>
 
           </div>
-          <img className='w-[100%] max-w-[45rem]' src="/assets/illust-linkedin.png" alt="illustration" />
+          <img className='w-[100%] hidden lg:flex max-w-[45rem]' src="/assets/illust-linkedin.png" alt="illustration" />
 
         </section>
     </div>
