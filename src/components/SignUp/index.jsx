@@ -100,7 +100,7 @@ const SignUp = () => {
       <section className='flex flex-col p-4 lg:flex-row gap-7 md:gap-0 justify-center items-center lg:pl-[15vw] lg:pr-[2rem] lg:justify-between'>
           <div className='flex flex-col items-center lg:items-start max-w-[35rem] gap-3'>
             <h1 className='md:text-[3.5rem] text-[2.4rem] font-extralight md:leading-[4rem] leading-[2.8rem] text-center lg:text-left  text-[#8F5849]'>Welcome to your proffesional community</h1>
-            <form className='flex flex-col mt-[1.5rem] gap-6 w-[100%] max-w-[26rem]'>
+            <form className='flex flex-col mt-[1.5rem] gap-6 w-[90%] max-w-[26rem]'>
               {errorMsg && <div className='text-red-500 mt-[-0.7rem] mb-[-0.6rem] font-semibold italic text-[0.85rem]'>{errorMsg}</div>}
             <div>
                   <label className='text-[0.9rem] font-bold text-gray-500' htmlFor="email">Full name</label>
