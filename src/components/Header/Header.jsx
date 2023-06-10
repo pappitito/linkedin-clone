@@ -44,7 +44,7 @@ useEffect(()=>{
 
 
   return (
-    <div className='pt-2 h-[4rem] items-center sticky top-0 w-screen z-[999] pl-3 pr-3 justify-between md:justify-evenly flex flex-row bg-white'>
+    <div className='pt-2 h-[4rem] items-center sticky top-0 w-screen z-[999] pl-4 pr-4 justify-between md:justify-evenly flex flex-row bg-white'>
       <div className='flex flex-row w-[100%] items-center gap-4' id='left-side'>
         <img className='w-[2.3rem] hidden sm:flex' src="/assets/linkedinLogo.svg" alt="logo" />
         <img className={`w-[7.9rem] ${searchActive? 'hidden' : 'false'} sm:hidden`} src="/assets/logo.png" alt="logo" />
